@@ -1,86 +1,118 @@
-[500 Global Scraper](https://apify.com/michael.g/500-global-scraper?fpr=data)
+[500 Global Scraper](https://apify.com/fatihtahta/500-global-scraper?fpr=data)
 
-## What does 500 Global Scraper do?
+# 500 Global Scraper | Fast & Reliable | $5 / 1k
 
-500 Global Scraper allows you to extract data about companies from the [500 Global (formerly 500 Startups)](https://500.co/portfolio): company name, description, stage, country, region, website, LinkedIn, and more.
+**Slug:** `fatihtahta/500-global-scraper`
 
-## About 500 Global
+**Price:** **$5.00 per 1,000 saved companies**
 
-500 Global is a venture capital firm that invests across sectors, geographies and markets where capital and their unique global networks and resources may unlock the potential of entrepreneurs to drive uncommon outcomes. They have invested in companies across various stages from Pre-Seed to Growth.
+Pull structured company intelligence straight from the 500 Global portfolio. Point this actor at any portfolio view on [500.co](https://500.co/portfolio), set your preferred limits, and receive ready-to-use records that include founder details, investment history, hiring signals, and optional professional emails.
 
-## Company data fields
+📩 This actor is built upon the [ValidatedMails.com](https://validatedmails.com) architecture for email enrichment workflows.
 
-| Field Name | Type | Description |
-| --- | --- | --- |
-| Company Image | String (URL) | Company image URL |
-| Company Name | String | Company name |
-| Description | String | Company description |
-| Stage | String | Investment stage (Pre-Seed, Seed, Series A, etc.) |
-| Country | String | Company country |
-| Business Model | String | Business model (B2B, B2C, etc.) |
-| Website | String (URL) | Company website |
-| Company LinkedIn | String (URL) | Company LinkedIn profile URL |
+---
 
-## Why scrape 500 Global?
+## 🚀 What You Get
 
-- **Lead generation:** identifying startups for potential collaboration or investment.
-- **Market research:** analyzing trends and popular niches in the startup ecosystem.
-- **Studying the startup landscape:** understanding successful approaches and business models.
-- **Finding inspiration:** exploring ideas and innovations that could influence your own project.
+- **Filter-aware portfolio coverage** — Scrape companies by tenant, region, industry, stage, or any combination of filters you configure on 500.co.
+- **Complete company snapshots** — Company names, descriptions, locations, batch participation, investment counts, and hiring indicators all included.
+- **Founder context & contactability** — Each record includes the founders tracked by 500 Global; toggle email enrichment when available.
+- **Dataset-ready deduped output** — Export JSON, CSV, Excel, or HTML from Apify without any manual cleanup.
+- **Scalable & dependable** — Designed for large pulls across the global portfolio while staying responsive for small, targeted jobs.
 
-## Example Input
+---
 
-Portfolio URL: [https://500.co/portfolio?page=1&industry=AI/Machine%20Learning&region=all&stage=all&country=all&bModel=all&batch=all&sort=alphabetically#companies-table](https://500.co/portfolio?page=1&industry=AI/Machine%20Learning&region=all&stage=all&country=all&bModel=all&batch=all&sort=alphabetically#companies-table)
+## 🧠 Ideal Use Cases
 
-![Input Example](https://images.apifyusercontent.com/m-l3SMF50I4RDd4jyYU02WGFYhg-g40DZhrQDvEQfo0/w:1800/cb:1/aHR0cHM6Ly9pLmltZ2hpcHBvLmNvbS9maWxlcy9zWXk1NjQyalEucG5n.webp)
+- **Deal sourcing** – Build shortlists of startups that match your thesis, region, or batch interest.
+- **Competitive scouting** – Compare industries, stages, and hiring signals across cohorts.
+- **Founder outreach** – Enrich and prioritise with contact-ready founder details.
+- **Market mapping** – Analyse the breadth of 500 Global investments for research and reporting.
 
-And here's the same, just in JSON.
+---
 
-```
-{
-  "url": "https://500.co/portfolio?page=1&industry=AI/Machine%20Learning&region=all&stage=all&country=all&bModel=all&batch=all&sort=alphabetically#companies-table",
-  "scrape_all_companies": false
-}
-```
+## 📥 Input Configuration
 
-## Output sample
+Open the **Input** tab and provide the settings that fit your search. Key fields include:
 
-The results will be wrapped into a dataset which you can find in the Storage tab. Note that the output is organized in a table for viewing convenience. Here's an example of some of the output from the previous companies search URL:
+- `startUrls` *(string | array)* — One or more 500 Global portfolio URLs with your desired filters applied.
+- `maxCompanies` *(number, default `5000`)* — Upper limit for saved companies.
+- `enrichWithEmail` *(boolean, default `true`)* — Toggle founder email discovery.
+- `includeRiskyEmails` *(boolean, default `false`)* — Include limitly verified results when email enrichment is enabled.
+- `proxyConfiguration` *(object)* — Leave the Apify defaults or customise to match your proxy setup.
+- 
 
-![Output Sample](https://images.apifyusercontent.com/TNdDXB7ba761bdMLt2JT_9HmC8EMfA3a5wUGNzBxjcw/w:1800/cb:1/aHR0cHM6Ly9pLmltZ2hpcHBvLmNvbS9maWxlcy9jeG5yNzc5N1JwUS5wbmc.webp)
+---
 
-By clicking on the green Export button, you can download the dataset in XML, CSV, Excel, HTML, or JSON. See an example of a JSON file:
+## 🧪 Example Input
 
 ```
 {
-    "company_image": "https://500.co/_next/image?url=https%3A%2F%2Ffounder-hub-public.s3.amazonaws.com%2Fdf27f718-40b9-40ed-b77b-9219544de495.png&w=128&q=75",
-    "company_name": "Talkdesk",
-    "description": "Developer of cloud-based call center software designed to help growing businesses improve customer satisfaction while reducing costs. The company's platform uses IVR, ACD, and skills-based routing technology that seamlessly integrates ITSM and CSM service desks, enabling businesses to communicate with their customers and manage the entire call center operations using the web.",
-    "stage": "Series D & Beyond",
-    "country": "United States",
-    "business_model": "B2B",
-    "website": "http://www.talkdesk.com",
-    "company_linkedin": "https://www.linkedin.com/company/talkdesk"
+  "startUrls": [
+    "https://500.co/portfolio?tenant=global&industry=artificial-intelligence"
+  ],
+  "maxCompanies": 750,
+  "enrichWithEmail": true,
+  "includeRiskyEmails": false,
+  "proxyConfiguration": {
+    "useApifyProxy": true,
+    "groups": ["RESIDENTIAL"]
+  }
 }
 ```
 
-## How do I use 500 Global Scraper?
+---
 
-500 Global Scraper is designed to help you easily extract company data from the portfolio page. Follow these steps:
+## 📦 Output Fields
 
-1. **Run the Scraper:** Click "Start" and wait for the data extraction to complete.
-2. **Export your data:** Download in Excel, CSV, JSON, HTML, or via API.
+Each saved item represents a single portfolio company and typically contains:
 
-## How much does 500 Global Scraper cost?
+- `source` — Original URL and scrape timestamp.
+- `identifiers` — 500 Global company IDs.
+- `names` — Display, legal, brand, and alternative names.
+- `descriptions` — Short and extended company blurbs (when available).
+- `media` — Logo or featured image URLs.
+- `web` — Website, social profiles, and domain.
+- `operations` — Country, regional grouping, and tenant tags.
+- `business` — Stage, fundraising status, industries, and business model insights.
+- `program` — Batch or accelerator program participation.
+- `hiring` — Hiring flag and number of open roles.
+- `investments` — Count of known investment events and their dates.
+- `founders` — Founder roster with profile links and optional email + status fields.
+- `stats` / `legacy` — Aggregated counters and compatibility fields for older workflows.
 
-This scraper uses the Pay-per-result pricing model, so your costs can be easily calculated: it will cost you **$10 to scrape 1,000 companies**, which is $0.010 per item. Apify provides you with $5 in free usage credits every month on the [Apify Free plan](https://apify.com/pricing?fpr=home), allowing you to **scrape over 50 companies** from the 500 Global portfolio for free using those credits.
+Export results directly from the **Dataset** tab in your preferred format.
 
-For regular data extraction, consider upgrading to the [$29/month Starter plan](https://apify.com/pricing?fpr=home), which can **get you over 2,900 companies every month.**
+---
 
-## Integrations and 500 Global Scraper
+## 🛠️ How to Use
 
-500 Global Scraper can be connected with almost any cloud service or web app thanks to integrations on the Apify platform. You can integrate with Make, n8n, Zapier, Apollo, Clay, Slack, Airbyte, GitHub, Google Sheets, Google Drive, and [more](https://docs.apify.com/platform/integrations).
+1. **Open** the actor: **500 Global Scraper | Fast & Reliable | $4 / 1k**.
+2. **Configure** your filters on 500.co and copy the resulting portfolio URL(s) into `startUrls`.
+3. **Adjust** the optional limits, concurrency, and email settings as needed.
+4. **Run** the actor and monitor progress in real time.
+5. **Download** or integrate your dataset once the run completes.
 
-## Your feedback
+---
 
-We're always working on improving the performance of our Actors. If you've got any technical feedback for 500 Global Scraper or simply found a bug, please create an issue on the actor's [Issues tab](https://console.apify.com/actors/dt6pOPzVU16Rv4pom/issues) in Apify Console.
+## 💰 Pricing
+
+**$4.00 per 1,000 saved companies.**
+
+You are billed only for successfully stored items.
+
+---
+
+## ⚖️ Responsible Use
+
+The dataset surfaces publicly available company and founder information. Depending on your jurisdiction, this may include personal data. Ensure your use complies with applicable privacy laws (e.g., GDPR, CCPA), respect opt-outs, and follow the relevant platform terms when contacting founders.
+
+---
+
+## ❓ Support
+
+Need help, feature tweaks, or a custom dataset? Open an issue on the **Issues** tab of the actor page and it will be resolved around the clock.
+
+Happy Scraping!
+
+— Fatih
